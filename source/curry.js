@@ -6,7 +6,7 @@ const curry = function (fn) {
         ? function (...rargs) {
             return curriedFn.apply(this, [...args, ...rargs])
         }
-        : fn.apply(null, args);
+        : fn.apply(this, args);
     }
 };
 
