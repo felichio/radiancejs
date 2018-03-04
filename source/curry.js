@@ -3,7 +3,7 @@
 const curry = function (fn) {
     return function curriedFn(...args) {
         return args.length < fn.length
-        ? function (...rags) {
+        ? function (...rargs) {
             return curriedFn.apply(this, [...args, ...rargs])
         }
         : fn.apply(null, args);
