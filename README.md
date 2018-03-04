@@ -1,2 +1,2 @@
-# functionjs
+# radiancejs
 Functional Programming in Javascript
