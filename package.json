@@ -1,0 +1,28 @@
+{
+  "name": "radiancejs",
+  "version": "1.0.1",
+  "description": "Functional Programming in Javascript",
+  "main": "dist/radiance.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felichio/radiancejs.git"
+  },
+  "keywords": [
+    "functional",
+    "javascript",
+    "programming",
+    "pure",
+    "functions",
+    "higher",
+    "order"
+  ],
+  "author": "felichio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felichio/radiancejs/issues"
+  },
+  "homepage": "https://github.com/felichio/radiancejs#readme"
+}
