@@ -1,142 +1,136 @@
-// "use strict";
-//
-// let modules = [
-//     {
-//         name: "compose",
-//         path: "../source/"
-//     },
-//     {
-//         name: "curry",
-//         path: "../source/"
-//     },
-//     {
-//         name: "every",
-//         path: "../source/"
-//     },
-//     {
-//         name: "filter",
-//         path: "../source/"
-//     },
-//     {
-//         name: "find",
-//         path: "../source/"
-//     },
-//     {
-//         name: "forEach",
-//         path: "../source/"
-//     },
-//     {
-//         name: "map",
-//         path: "../source/"
-//     },
-//     {
-//         name: "mapWith",
-//         path: "../source/"
-//     },
-//     {
-//         name: "pipeline",
-//         path: "../source/"
-//     },
-//     {
-//         name: "reduce",
-//         path: "../source/"
-//     },
-//     {
-//         name: "some",
-//         path: "../source/"
-//     },
-// ]
-//
-//
-// modules.forEach(m => module.exports[m.name] = require(`${m.path + m.name}`));
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["R"] = factory();
+	else
+		root["R"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./source/exporter.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./source/add.js":
+/*!***********************!*\
+  !*** ./source/add.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Adds two values. op (+)\r\n * @signature\r\n *      (Number, Number) -> Number *      \r\n * @example\r\n *      let result = add(2, 5);  //=> 7\r\n */\r\n\r\nconst add = (x, y) => x + y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (add);\n\n//# sourceURL=webpack://R/./source/add.js?");
 
-(function (global, factory) {
-    "use strict";
-    // NodeJS Enviroment
+/***/ }),
 
-    typeof module === "object" && typeof module.exports === "object"
-    ? module.exports = factory(global)
-    : undefined;
+/***/ "./source/exporter.js":
+/*!****************************!*\
+  !*** ./source/exporter.js ***!
+  \****************************/
+/*! exports provided: add, subtract */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-    // Web Enviroments
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add */ \"./source/add.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"add\", function() { return _add__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _subtract__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./subtract */ \"./source/subtract.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"subtract\", function() { return _subtract__WEBPACK_IMPORTED_MODULE_1__[\"default\"]; });\n\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://R/./source/exporter.js?");
 
-    typeof window !== "undefined"
-    ? global._ = global.r = global.R = factory(global)
-    : undefined;
+/***/ }),
 
-})(typeof window !== "undefined" ? window : this, function (global) {
-    "use strict";
+/***/ "./source/subtract.js":
+/*!****************************!*\
+  !*** ./source/subtract.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-    const map = function map(fn, array) {
-        return array.map(fn);
-    };
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Subtracts second parameter from first one. op (-)\r\n * @signature\r\n *      (Number, Number) -> Number\r\n * @example\r\n *      let result = subtract(2, 5);  //=> -3\r\n */\r\n\r\nconst subtract = (x, y) => x - y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (subtract);\n\n//# sourceURL=webpack://R/./source/subtract.js?");
 
-    const filter = function (fn, array) {
-        return array.filter(fn);
-    };
+/***/ })
 
-    const find = function find(fn, array) {
-        return array.find(fn);
-    };
-
-    const every = function every(fn, array) {
-        return array.every(fn);
-    };
-
-    const some = function some(fn, array) {
-        return array.some(fn);
-    };
-
-    const forEach = function forEach(fn, array) {
-        return array.forEach(fn);
-    };
-
-    const reduce = function reduce(fn, array, initialValue) {
-        return initialValue ? array.reduce(fn, initialValue) : array.reduce(fn);
-    };
-
-    const curry = function (fn) {
-        return function curriedFn(...args) {
-            return args.length < fn.length
-            ? function (...rargs) {
-                return curriedFn.apply(this, [...args, ...rargs])
-            }
-            : fn.apply(this, args);
-        }
-    };
-
-    const compose = function compose(...args) {
-        let composed = reduce((composedFn, currentFn) => x => composedFn(currentFn(x)), args);
-        return composed;
-    };
-
-    const pipeline = function pipeline(...args) {
-        let pipelined = reduce((composedFn, currentFn) => x => currentFn(composedFn(x)), args);
-        return pipelined;
-    };
-
-    const mapWith = function mapWith(fn) {
-        return curry(map)(fn);
-    };
-
-    return {
-        map,
-        filter,
-        find,
-        every,
-        some,
-        forEach,
-        reduce,
-        curry,
-        compose,
-        pipeline,
-        mapWith,
-
-    }
-
-
-
-
+/******/ });
 });

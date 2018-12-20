@@ -24,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/felichio/radiancejs/issues"
   },
-  "homepage": "https://github.com/felichio/radiancejs#readme"
+  "homepage": "https://github.com/felichio/radiancejs#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.1.2"
+  }
 }
