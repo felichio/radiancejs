@@ -108,15 +108,39 @@ eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Adds two values. op
 
 /***/ }),
 
+/***/ "./source/divide.js":
+/*!**************************!*\
+  !*** ./source/divide.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Divides second parameter by first one. op (/)\r\n * @signature\r\n *      (Number, Number) -> Number\r\n * @example\r\n *      let result = divide(2, 5);  //=> 0.4\r\n */\r\n\r\nconst divide = (x, y) => x / y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (divide);\n\n//# sourceURL=webpack://R/./source/divide.js?");
+
+/***/ }),
+
 /***/ "./source/exporter.js":
 /*!****************************!*\
   !*** ./source/exporter.js ***!
   \****************************/
-/*! exports provided: add, subtract */
+/*! exports provided: add, subtract, multiply, divide */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add */ \"./source/add.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"add\", function() { return _add__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _subtract__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./subtract */ \"./source/subtract.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"subtract\", function() { return _subtract__WEBPACK_IMPORTED_MODULE_1__[\"default\"]; });\n\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://R/./source/exporter.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add */ \"./source/add.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"add\", function() { return _add__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _subtract__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./subtract */ \"./source/subtract.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"subtract\", function() { return _subtract__WEBPACK_IMPORTED_MODULE_1__[\"default\"]; });\n\n/* harmony import */ var _multiply__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./multiply */ \"./source/multiply.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"multiply\", function() { return _multiply__WEBPACK_IMPORTED_MODULE_2__[\"default\"]; });\n\n/* harmony import */ var _divide__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./divide */ \"./source/divide.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"divide\", function() { return _divide__WEBPACK_IMPORTED_MODULE_3__[\"default\"]; });\n\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://R/./source/exporter.js?");
+
+/***/ }),
+
+/***/ "./source/multiply.js":
+/*!****************************!*\
+  !*** ./source/multiply.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Multiplies first parameter, second parameter times . op (*)\r\n * @signature\r\n *      (Number, Number) -> Number\r\n * @example\r\n *      let result = multiply(2, 5);  //=> 10\r\n */\r\n\r\nconst multiply = (x, y) => x * y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (multiply);\n\n//# sourceURL=webpack://R/./source/multiply.js?");
 
 /***/ }),
 

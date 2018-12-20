@@ -4,7 +4,8 @@
   "description": "Functional Programming in Javascript",
   "main": "dist/radiance.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/test.js",
+    "build-dev": "npx webpack --config \"./webpack.dev.js\""
   },
   "repository": {
     "type": "git",
