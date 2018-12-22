@@ -1,9 +1,10 @@
 /**
- * Divides second parameter by first one. op (/)
+ * @description
+ *  Divides second parameter by first one. op (/)
  * @signature
- *      (Number, Number) -> Number
+ *  (Number, Number) -> Number
  * @example
- *      let result = divide(2, 5);  //=> 0.4
+ *  let result = divide(2, 5);  //=> 0.4
  */
 
 const divide = (x, y) => x / y;

@@ -1,9 +1,8 @@
 /**
- * 
- * Performs a binary Operation between to arguments. Set{"+", "-", "/", "*", "=", ">", "<"}
+ * @description
+ *  Performs a binary Operation between to arguments. Set{"+", "-", "/", "*", "=", ">", "<"}
  * @signature
- *      (String, Number, Number) -> Number || Boolean
- * 
+ *  (String, Number, Number) -> Number || Boolean
  * @example
  * 
  * 

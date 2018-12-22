@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Adds two values. op (+)\r\n * @signature\r\n *      (Number, Number) -> Number *      \r\n * @example\r\n *      let result = add(2, 5);  //=> 7\r\n */\r\n\r\nconst add = (x, y) => x + y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (add);\n\n//# sourceURL=webpack://R/./source/add.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Adds two values. op (+)\r\n * @signature\r\n *  (Number, Number) -> Number *      \r\n * @example\r\n *  let result = add(2, 5);  //=> 7\r\n */\r\n\r\nconst add = (x, y) => x + y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (add);\n\n//# sourceURL=webpack://R/./source/add.js?");
 
 /***/ }),
 
@@ -116,7 +116,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Adds two values. op
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * \r\n * Performs a binary Operation between to arguments. Set{\"+\", \"-\", \"/\", \"*\", \"=\", \">\", \"<\"}\r\n * @signature\r\n *      (String, Number, Number) -> Number || Boolean\r\n * \r\n * @example\r\n * \r\n * \r\n * \r\n */\r\n\r\n// Default. Implementation utilizing switch block statement\r\nconst switchImplementation = (operator, x, y) => {\r\n    switch(operator) {\r\n        case \"+\": return x + y;\r\n        case \"-\": return x - y;\r\n        case \"/\": return x / y;\r\n        case \"*\": return x * y;\r\n        case \"=\": return x === y;\r\n        case \">\": return x > y;\r\n        case \"<\": return x < y;\r\n    }\r\n};\r\n\r\n// Implementation utilizing if statement\r\nconst ifImplementation = (operator, x, y) => {\r\n    if (operator === \"+\") return x + y;\r\n    else if (operator === \"-\") return x - y;\r\n    else if (operator === \"/\") return x / y;\r\n    else if (operator === \"*\") return x * y;\r\n    else if (operator === \"=\") return x === y;\r\n    else if (operator === \">\") return x > y;\r\n    else if (operator === \"<\") return x < y;\r\n};\r\n\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (switchImplementation);\r\n\r\n\n\n//# sourceURL=webpack://R/./source/binaryOp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Performs a binary Operation between to arguments. Set{\"+\", \"-\", \"/\", \"*\", \"=\", \">\", \"<\"}\r\n * @signature\r\n *  (String, Number, Number) -> Number || Boolean\r\n * @example\r\n * \r\n * \r\n * \r\n */\r\n\r\n// Default. Implementation utilizing switch block statement\r\nconst switchImplementation = (operator, x, y) => {\r\n    switch(operator) {\r\n        case \"+\": return x + y;\r\n        case \"-\": return x - y;\r\n        case \"/\": return x / y;\r\n        case \"*\": return x * y;\r\n        case \"=\": return x === y;\r\n        case \">\": return x > y;\r\n        case \"<\": return x < y;\r\n    }\r\n};\r\n\r\n// Implementation utilizing if statement\r\nconst ifImplementation = (operator, x, y) => {\r\n    if (operator === \"+\") return x + y;\r\n    else if (operator === \"-\") return x - y;\r\n    else if (operator === \"/\") return x / y;\r\n    else if (operator === \"*\") return x * y;\r\n    else if (operator === \"=\") return x === y;\r\n    else if (operator === \">\") return x > y;\r\n    else if (operator === \"<\") return x < y;\r\n};\r\n\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (switchImplementation);\r\n\r\n\n\n//# sourceURL=webpack://R/./source/binaryOp.js?");
 
 /***/ }),
 
@@ -128,7 +128,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * \r\n * Performs a b
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Converting a multivariable function into a stepwise sequence of unary functions\r\n * @signature\r\n *      ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n \r\n * @example\r\n *      \r\n */\r\n\r\n\r\n// Implementation utilizing Function.prototype.bind method\r\nconst curryWithBind = (fn, argLength = fn.length) => argLength === 0 ? fn() : x => curryWithBind(fn.bind(null, x), argLength - 1);\r\n\r\n// Default implementation via recursion and closures\r\nconst curryRecursive = (fn, argLength = fn.length) => {\r\n    const innerCurry = (...args) => y => (argLength <= args.length + 1 ? fn : innerCurry)(...args, y);\r\n    return innerCurry();\r\n};\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (curryRecursive);\n\n//# sourceURL=webpack://R/./source/curry.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Converting a multivariable function into a stepwise sequence of unary functions\r\n * @signature\r\n *  ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n \r\n * @example\r\n *      \r\n */\r\n\r\n\r\n// Implementation utilizing Function.prototype.bind method\r\nconst curryWithBind = (fn, argLength = fn.length) => argLength === 0 ? fn() : x => curryWithBind(fn.bind(null, x), argLength - 1);\r\n\r\n// Default implementation via recursion and closures\r\nconst curryRecursive = (fn, argLength = fn.length) => {\r\n    const innerCurry = (...args) => y => (argLength <= args.length + 1 ? fn : innerCurry)(...args, y);\r\n    return innerCurry();\r\n};\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (curryRecursive);\n\n//# sourceURL=webpack://R/./source/curry.js?");
 
 /***/ }),
 
@@ -140,7 +140,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Converting a multiv
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Divides second parameter by first one. op (/)\r\n * @signature\r\n *      (Number, Number) -> Number\r\n * @example\r\n *      let result = divide(2, 5);  //=> 0.4\r\n */\r\n\r\nconst divide = (x, y) => x / y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (divide);\n\n//# sourceURL=webpack://R/./source/divide.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Divides second parameter by first one. op (/)\r\n * @signature\r\n *  (Number, Number) -> Number\r\n * @example\r\n *  let result = divide(2, 5);  //=> 0.4\r\n */\r\n\r\nconst divide = (x, y) => x / y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (divide);\n\n//# sourceURL=webpack://R/./source/divide.js?");
 
 /***/ }),
 
@@ -164,7 +164,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _add
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Inverts parameter passing to a function.\r\n * \r\n * \r\n * \r\n */\r\n\r\n\r\nconst flip = fn => (x, y) => fn(y, x);\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (flip);\n\n//# sourceURL=webpack://R/./source/flip.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Inverts parameter passing to a function.\r\n * \r\n * \r\n * \r\n */\r\n\r\n\r\nconst flip = fn => (x, y) => fn(y, x);\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (flip);\n\n//# sourceURL=webpack://R/./source/flip.js?");
 
 /***/ }),
 
@@ -176,7 +176,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Inverts parameter p
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _exporter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exporter */ \"./source/exporter.js\");\n/**\r\n * \r\n * \r\n * \r\n */\r\n\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(_exporter__WEBPACK_IMPORTED_MODULE_0__[\"pcurry\"])(Object(_exporter__WEBPACK_IMPORTED_MODULE_0__[\"flip\"])(Object(_exporter__WEBPACK_IMPORTED_MODULE_0__[\"unmethod\"])(Array.prototype.map))));\r\n\n\n//# sourceURL=webpack://R/./source/map.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _exporter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exporter */ \"./source/exporter.js\");\n/**\r\n * @description\r\n *  Same behaviour as Array.prototype.map except array must be passed explicitly\r\n * @signature\r\n *  (a -> b) -> [a] -> [b]\r\n * @example\r\n * \r\n * \r\n */\r\n\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(_exporter__WEBPACK_IMPORTED_MODULE_0__[\"pcurry\"])(Object(_exporter__WEBPACK_IMPORTED_MODULE_0__[\"flip\"])(Object(_exporter__WEBPACK_IMPORTED_MODULE_0__[\"unmethod\"])(Array.prototype.map))));\r\n\n\n//# sourceURL=webpack://R/./source/map.js?");
 
 /***/ }),
 
@@ -188,7 +188,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _exp
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Multiplies first parameter, second parameter times . op (*)\r\n * @signature\r\n *      (Number, Number) -> Number\r\n * @example\r\n *      let result = multiply(2, 5);  //=> 10\r\n */\r\n\r\nconst multiply = (x, y) => x * y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (multiply);\n\n//# sourceURL=webpack://R/./source/multiply.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Multiplies first parameter, second parameter times . op (*)\r\n * @signature\r\n *  (Number, Number) -> Number\r\n * @example\r\n *  let result = multiply(2, 5);  //=> 10\r\n */\r\n\r\nconst multiply = (x, y) => x * y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (multiply);\n\n//# sourceURL=webpack://R/./source/multiply.js?");
 
 /***/ }),
 
@@ -200,7 +200,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Multiplies first pa
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Converting a multivariable function into a stepwise sequence of partially applied functions\r\n * @signature\r\n *      ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n || ((n1, n2, ...nm) -> n) -> (n1, n2) -> n3 -> ...nm -> n || ... || ((n1, n2, ...nm) -> n) -> (n1, n2, ... n[m-1]) -> nm -> n\r\n * @example\r\n *      \r\n */\r\n\r\n\r\n\r\n// Implementation utilizing Function.prototype.bind method\r\nconst partialCurryWithBind = (fn, argLength = fn.length) => argLength === 0 ? fn() : (...args) => partialCurryWithBind(fn.bind(null, ...args), argLength - 1);\r\n\r\n// Default implementation via recursion and closures\r\nconst partialCurryRecursive = (fn, argLength = fn.length) => {\r\n    const innerCurry = (...args1) => (...args2) => (argLength <= args1.length + args2.length ? fn : innerCurry)(...args1, ...args2);\r\n    return innerCurry();\r\n};\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (partialCurryRecursive);\n\n//# sourceURL=webpack://R/./source/partialCurry.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Converting a multivariable function into a stepwise sequence of partially applied functions\r\n * @signature\r\n *  ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n || ((n1, n2, ...nm) -> n) -> (n1, n2) -> n3 -> ...nm -> n || ... || ((n1, n2, ...nm) -> n) -> (n1, n2, ... n[m-1]) -> nm -> n\r\n * @example\r\n *      \r\n */\r\n\r\n\r\n\r\n// Implementation utilizing Function.prototype.bind method\r\nconst partialCurryWithBind = (fn, argLength = fn.length) => argLength === 0 ? fn() : (...args) => partialCurryWithBind(fn.bind(null, ...args), argLength - 1);\r\n\r\n// Default implementation via recursion and closures\r\nconst partialCurryRecursive = (fn, argLength = fn.length) => {\r\n    const innerCurry = (...args1) => (...args2) => (argLength <= args1.length + args2.length ? fn : innerCurry)(...args1, ...args2);\r\n    return innerCurry();\r\n};\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (partialCurryRecursive);\n\n//# sourceURL=webpack://R/./source/partialCurry.js?");
 
 /***/ }),
 
@@ -212,7 +212,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Converting a multiv
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Subtracts second parameter from first one. op (-)\r\n * @signature\r\n *      (Number, Number) -> Number\r\n * @example\r\n *      let result = subtract(2, 5);  //=> -3\r\n */\r\n\r\nconst subtract = (x, y) => x - y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (subtract);\n\n//# sourceURL=webpack://R/./source/subtract.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Subtracts second parameter from first one. op (-)\r\n * @signature\r\n *  (Number, Number) -> Number\r\n * @example\r\n *  let result = subtract(2, 5);  //=> -3\r\n */\r\n\r\nconst subtract = (x, y) => x - y;\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (subtract);\n\n//# sourceURL=webpack://R/./source/subtract.js?");
 
 /***/ }),
 
@@ -224,7 +224,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Subtracts second pa
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Transform object methods to standalone functions receiving objects as first argument.\r\n *  @singature\r\n *      ((this, n1, ... nm) -> b) -> (a, n1, n2, n3, ... nm) -> b\r\n *  @example\r\n *      \r\n */\r\n\r\nconst unmethodify1 = fn => (first, ...rest) => fn.call(first, ...rest);\r\n\r\nconst unmethodify2 = fn => (first, ...rest) => fn.apply(first, rest);\r\n\r\nconst unmethodify3 = fn => (...args) => fn.bind(...args)();\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (unmethodify3);\n\n//# sourceURL=webpack://R/./source/unmethodify.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * @description\r\n *  Transform object methods to standalone functions receiving objects as first argument.\r\n * @singature\r\n *  ((this, n1, ... nm) -> b) -> (a, n1, n2, n3, ... nm) -> b\r\n * @example\r\n *      \r\n */\r\n\r\nconst unmethodify1 = fn => (first, ...rest) => fn.call(first, ...rest);\r\n\r\nconst unmethodify2 = fn => (first, ...rest) => fn.apply(first, rest);\r\n\r\nconst unmethodify3 = fn => (...args) => fn.bind(...args)();\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (unmethodify3);\n\n//# sourceURL=webpack://R/./source/unmethodify.js?");
 
 /***/ })
 

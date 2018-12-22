@@ -1,7 +1,8 @@
 /**
- * Converting a multivariable function into a stepwise sequence of partially applied functions
+ * @description
+ *  Converting a multivariable function into a stepwise sequence of partially applied functions
  * @signature
- *      ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n || ((n1, n2, ...nm) -> n) -> (n1, n2) -> n3 -> ...nm -> n || ... || ((n1, n2, ...nm) -> n) -> (n1, n2, ... n[m-1]) -> nm -> n
+ *  ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n || ((n1, n2, ...nm) -> n) -> (n1, n2) -> n3 -> ...nm -> n || ... || ((n1, n2, ...nm) -> n) -> (n1, n2, ... n[m-1]) -> nm -> n
  * @example
  *      
  */

@@ -1,7 +1,8 @@
 /**
- * Converting a multivariable function into a stepwise sequence of unary functions
+ * @description
+ *  Converting a multivariable function into a stepwise sequence of unary functions
  * @signature
- *      ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n 
+ *  ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n 
  * @example
  *      
  */

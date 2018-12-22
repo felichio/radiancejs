@@ -1,8 +1,9 @@
 /**
- * Transform object methods to standalone functions receiving objects as first argument.
- *  @singature
- *      ((this, n1, ... nm) -> b) -> (a, n1, n2, n3, ... nm) -> b
- *  @example
+ * @description
+ *  Transform object methods to standalone functions receiving objects as first argument.
+ * @singature
+ *  ((this, n1, ... nm) -> b) -> (a, n1, n2, n3, ... nm) -> b
+ * @example
  *      
  */
 

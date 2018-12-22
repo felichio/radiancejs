@@ -1,5 +1,6 @@
 /**
- * Inverts parameter passing to a function.
+ * @description
+ *  Inverts parameter passing to a function.
  * 
  * 
  * 

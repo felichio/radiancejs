@@ -1,9 +1,10 @@
 /**
- * Subtracts second parameter from first one. op (-)
+ * @description
+ *  Subtracts second parameter from first one. op (-)
  * @signature
- *      (Number, Number) -> Number
+ *  (Number, Number) -> Number
  * @example
- *      let result = subtract(2, 5);  //=> -3
+ *  let result = subtract(2, 5);  //=> -3
  */
 
 const subtract = (x, y) => x - y;
