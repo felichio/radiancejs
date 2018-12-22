@@ -32,7 +32,7 @@ const ifImplementation = (operator, x, y) => {
     else if (operator === "=") return x === y;
     else if (operator === ">") return x > y;
     else if (operator === "<") return x < y;
-}
+};
 
 
 
