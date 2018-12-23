@@ -7,7 +7,8 @@
  *  let result = multiply(2, 5);  //=> 10
  */
 
+import pcurry from "./partialCurry";
+
 const multiply = (x, y) => x * y;
 
-
-export default multiply;
+export default pcurry(multiply);

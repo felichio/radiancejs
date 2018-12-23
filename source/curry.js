@@ -17,5 +17,7 @@ const curryRecursive = (fn, argLength = fn.length) => {
     return innerCurry();
 };
 
+const curry = curryRecursive
 
-export default curryRecursive;
+
+export default curry;

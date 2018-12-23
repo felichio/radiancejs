@@ -18,5 +18,6 @@ const partialCurryRecursive = (fn, argLength = fn.length) => {
     return innerCurry();
 };
 
+const pcurry = partialCurryRecursive;
 
-export default partialCurryRecursive;
+export default pcurry;

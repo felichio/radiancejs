@@ -4,7 +4,7 @@
  * @signature
  *  a -> a
  * @example
- *  
+ *  let result = identity(3) //=> 3
  */
 
 

@@ -7,7 +7,9 @@
  *  let result = divide(2, 5);  //=> 0.4
  */
 
+import pcurry from "./partialCurry";
+
 const divide = (x, y) => x / y;
 
 
-export default divide;
+export default pcurry(divide);
