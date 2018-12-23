@@ -8,6 +8,10 @@ import pcurry from "./partialCurry";
 import unmethod from "./unmethodify";
 import flip from "./flip";
 import map from "./map";
+import filter from "./filter";
+import reduce from "./reduce";
+import reduceRight from "./reduceRight";
+import identity from "./identity";
 
 export {
     add,
@@ -19,5 +23,9 @@ export {
     pcurry,
     unmethod,
     flip,
-    map
+    map,
+    filter,
+    reduce,
+    reduceRight,
+    identity
 };
