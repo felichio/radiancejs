@@ -5,7 +5,7 @@
  *  (Number, Number) -> Number // Number -> Number -> Number      
  * @example
  *  let result = add(2, 5);  //=> 7
- *  let result = add(3)(6);  //=> 9
+ *  let result = add(2)(5);  //=> 7
  */
 
 import pcurry from "./partialCurry";

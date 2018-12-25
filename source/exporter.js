@@ -12,6 +12,9 @@ import filter from "./filter";
 import reduce from "./reduce";
 import reduceRight from "./reduceRight";
 import identity from "./identity";
+import uncurry from "./uncurry";
+import every from "./every";
+import some from "./some";
 
 export {
     add,
@@ -27,5 +30,8 @@ export {
     filter,
     reduce,
     reduceRight,
-    identity
+    identity,
+    uncurry,
+    every,
+    some
 };

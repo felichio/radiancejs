@@ -1,7 +1,8 @@
 /**
  * @description
  *  Inverts parameter passing to a function.
- * 
+ * @signature
+ *  ((a, b) -> c) -> ((b, a) -> c)
  * 
  * 
  */

@@ -5,6 +5,7 @@
  *  (Number, Number) -> Number
  * @example
  *  let result = subtract(2, 5);  //=> -3
+ *  let result = subtract(2)(5);  //=> -3
  */
 
 import pcurry from "./partialCurry";

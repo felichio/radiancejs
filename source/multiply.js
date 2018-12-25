@@ -5,6 +5,7 @@
  *  (Number, Number) -> Number
  * @example
  *  let result = multiply(2, 5);  //=> 10
+ *  let result = multiply(2)(5);  //=> 10 
  */
 
 import pcurry from "./partialCurry";
