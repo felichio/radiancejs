@@ -2,7 +2,8 @@
  * @description
  *  Multiplies first parameter, second parameter times . op (*)
  * @signature
- *  (Number, Number) -> Number
+ *  multiply :: Number -> Number -> Number
+ *  multiply :: (Number, Number) -> Number
  * @example
  *  let result = multiply(2, 5);  //=> 10
  *  let result = multiply(2)(5);  //=> 10 

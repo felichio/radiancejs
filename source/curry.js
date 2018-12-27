@@ -2,7 +2,7 @@
  * @description
  *  Converting a multivariable function into a stepwise sequence of unary functions
  * @signature
- *  ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n 
+ *  curry :: ((a1, a2, a3, ..., an) -> b, Number?) -> a1 -> a2 -> a3 -> ... -> an -> b
  * @example
  *      
  */

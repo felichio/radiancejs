@@ -2,7 +2,7 @@
  * @description
  *  Converting a multivariable function into a stepwise sequence of partially applied functions
  * @signature
- *  ((n1, n2, ...nm) -> n) -> n1 -> n2 -> ...nm -> n || ((n1, n2, ...nm) -> n) -> (n1, n2) -> n3 -> ...nm -> n || ... || ((n1, n2, ...nm) -> n) -> (n1, n2, ... n[m-1]) -> nm -> n
+ *  pcurry :: ((a1, a2, a3, ..., an) -> b, Number?) -> (a1 -> a2 -> a3 -> ... -> an -> b) | ((a1, a2) -> a3 -> ... -> an -> b) | ((a1, a2, a3) -> ... -> an -> b) | ... | (a1, a2, ..., an) -> b
  * @example
  *      
  */

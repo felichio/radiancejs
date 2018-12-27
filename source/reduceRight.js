@@ -2,7 +2,7 @@
  * @description
  *  Same behaviour as Array.prototype.reduceRight except array must be passed explicitly
  * @signature
- *  
+ *  reduceRight :: ((b, a) -> b) -> b -> [a] -> b
  * @example
  *
  *

@@ -2,7 +2,7 @@
  * @description
  *  Converting a stepwise sequence of unary functions into a multivariable function
  * @signature
- *  n1 -> n2 -> ... -> nm -> n -> (n1, n2, ... , nm) -> n
+ *  n1 -> n2 -> ... -> nm -> n -> (n1, n2, ..., nm) -> n
  * @example
  *  
  */

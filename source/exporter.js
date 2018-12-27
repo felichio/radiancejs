@@ -15,6 +15,8 @@ import identity from "./identity";
 import uncurry from "./uncurry";
 import every from "./every";
 import some from "./some";
+import concat from "./concat";
+
 
 export {
     add,
@@ -33,5 +35,6 @@ export {
     identity,
     uncurry,
     every,
-    some
+    some,
+    concat
 };

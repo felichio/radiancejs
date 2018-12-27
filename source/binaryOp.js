@@ -2,7 +2,8 @@
  * @description
  *  Performs a binary Operation between to arguments. Set{"+", "-", "/", "*", "=", ">", "<"}
  * @signature
- *  (String, Number, Number) -> Number || Boolean // String -> Number -> Number -> Number || Boolean
+ *  binaryOp :: String -> Number -> Number -> Number | Boolean
+ *  binaryOp :: (String, Number, Number) -> Number | Boolean
  * @example
  *  let add = binaryOp("+") //=> Function add
  *  let result = add(2)(19) //=> 21

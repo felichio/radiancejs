@@ -2,7 +2,7 @@
  * @description
  *  Same behaviour as Array.prototype.reduce except array must be passed explicitly
  * @signature
- *  
+ *  reduce :: ((b, a) -> b) -> b -> [a] -> b
  * @example
  *
  *
