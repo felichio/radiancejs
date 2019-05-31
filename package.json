@@ -1,6 +1,6 @@
 {
   "name": "radiancejs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Functional Programming in Javascript",
   "main": "dist/radiance.js",
   "scripts": {
