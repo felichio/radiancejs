@@ -4,7 +4,7 @@
   "description": "Functional Programming in Javascript",
   "main": "dist/radiance.js",
   "scripts": {
-    "test": "node test/test.js",
+    "test": "jest",
     "build-dev": "npx webpack --config \"./webpack.dev.js\""
   },
   "repository": {
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/felichio/radiancejs#readme",
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.8.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
   }

@@ -1,5 +1,4 @@
 node_modules/
 index.html
 .npmignore
-/test
 old/
