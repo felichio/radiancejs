@@ -17,6 +17,7 @@ import every from "./every";
 import some from "./some";
 import concat from "./concat";
 import foldl from "./foldLeft";
+import foldr from "./foldRight";
 
 
 export {
@@ -38,5 +39,6 @@ export {
     every,
     some,
     concat,
-    foldl
+    foldl,
+    foldr
 };

@@ -2,7 +2,8 @@
  * @description
  *  Gathering values of an Array through a reducer function. Left-Folding
  * @signature
- *  foldLeft :: ((b, a) -> b) -> b -> [a] -> b
+ *  foldLeft :: ((b, a) -> b) -> b -> [a] -> b || (b -> a -> b) -> b -> [a] -> b
+
  * @example
  *  
  *
