@@ -16,6 +16,7 @@ import uncurry from "./uncurry";
 import every from "./every";
 import some from "./some";
 import concat from "./concat";
+import foldl from "./foldLeft";
 
 
 export {
@@ -36,5 +37,6 @@ export {
     uncurry,
     every,
     some,
-    concat
+    concat,
+    foldl
 };
