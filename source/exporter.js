@@ -20,6 +20,7 @@ import foldl from "./foldLeft";
 import foldr from "./foldRight";
 import compose from "./compose";
 import range from "./range";
+import pipe from "./pipeline";
 
 
 export {
@@ -44,5 +45,6 @@ export {
     foldl,
     foldr,
     compose,
-    range
+    range,
+    pipe
 };
