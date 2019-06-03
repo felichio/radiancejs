@@ -18,6 +18,8 @@ import some from "./some";
 import concat from "./concat";
 import foldl from "./foldLeft";
 import foldr from "./foldRight";
+import compose from "./compose";
+import range from "./range";
 
 
 export {
@@ -40,5 +42,7 @@ export {
     some,
     concat,
     foldl,
-    foldr
+    foldr,
+    compose,
+    range
 };
