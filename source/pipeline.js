@@ -28,4 +28,3 @@ const pipelineNleft = (...args) => foldl(pipelineTwo)(identity)(args);
 const pipelineNright = (...args) => foldr(pipelineTwo)(identity)(args);
 
 export default pipelineNleft;
-
