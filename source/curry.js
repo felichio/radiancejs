@@ -4,7 +4,15 @@
  * @signature
  *  curry :: ((a1, a2, a3, ..., an) -> b, Number?) -> a1 -> a2 -> a3 -> ... -> an -> b
  * @example
- *      
+ *  const add = (x, y, w, z) => x + y + w + z;
+ *  
+ *  const curriedAdd = curry(add);
+ *  const a = curriedAdd(1);
+ *  //-> (y, w, z) => 1 + y + w + z
+ *  const b = a(2)(3);
+ *  //-> z => 1 + 2 + 3 + z
+ *  const c = b(4);
+ *  //-> 1 + 2 + 3 + 4 = 10
  */
 
 

@@ -6,8 +6,12 @@
  *  every :: (a -> Boolean) -> [a] -> Boolean
  *  every :: Predicate -> [e1, e2, ..., en] -> Predicate(e1) && Predicate(e2) && ... && Predicate(en)
  * @example
- *
- *
+ *  const a = [1, 2, 3, 4];
+ *  
+ *  every(x => x > 0, a);
+ *  //-> True
+ *  every(x => x > 0)(a);
+ *  //-> True
  */
 
 import { flip, unmethod, pcurry } from "./exporter";

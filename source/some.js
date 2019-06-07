@@ -6,7 +6,12 @@
  *  some :: (a -> Boolean) -> [a] -> Boolean
  *  some :: Predicate -> [e1, e2, ..., en] -> Predicate(e1) || Predicate(e2) || ... || Predicate(en)
  * @example
- *
+ *  const a = [1, 2, 3, 4];
+ *  
+ *  some(x => x > 3, a);
+ *  //-> True
+ *  every(x => x > 4)(a);
+ *  //-> False
  *
  */
 

@@ -29,11 +29,14 @@ const concat = (p1, p2) => p1 === empty ? p2 : prepend(car(p1), concat(cdr(p1), 
 // mconcat :: [List a] -> List a
 const mconcat = r.foldr(concat)(empty);
 
+
+
 // foldl :: ((b, a) -> b, b, List a) -> b
 const foldl = (f, z, p) => p === empty ? z : foldl(f, f(z, car(p)), cdr(p));
 
 // foldr :: ((a, b) -> b, b, List a) -> b
 const foldr = (f, z, p) => p === empty ? z : f(car(p), foldr(f, z, cdr(p)));
+
 
 // toArray :: List a -> [a]
 const toArray = p => foldr((x, y) => [x, ...y], [], p);
@@ -53,6 +56,14 @@ const takeWhile = (f, p) => p === empty ? empty : f(car(p)) ? prepend(car(p), ta
 // zip :: (List a, List b) -> List [a, b]
 const zip = (p1, p2) => p1 === empty || p2 === empty ? empty : prepend([car(p1), car(p2)], zip(cdr(p1), cdr(p2)));
 
+
+
+
+// join :: List (List a) -> List a
+const join = r.pcurry(foldr)(concat, empty);
+
+// chain :: (List a, (a -> List b)) -> List b
+const chain = (p, f) => r.compose(join, r.pcurry(map)(f))(p);
 
 const listWrapper = p => {
     const wrapped = fn => (...args) => listWrapper(fn(...args));
@@ -80,6 +91,10 @@ const listWrapper = p => {
 
         reverse: () => wrapped(reverse)(p),
 
+        join: () => foldr((x, y) => wrapped(concat)(x.getPairContext(), y.getPairContext()), listWrapper(empty), p),
+
+        chain: f => wrapped(chain)(p, x => f(x).getPairContext()),
+
         getPairContext: () => p,
     });
 };
@@ -89,6 +104,8 @@ const listWrapper = p => {
 const guardFromArray = f => (...args) => args.length > 1 ? f(args) : args.length === 1 ? f(args[0]) : f([]);
 
 const list = r.composeM(listWrapper, guardFromArray(fromArray));
+
+
 
 const logger = p => p === empty ? console.log(empty) : (console.log(car(p)), logger(cdr(p)));
 
@@ -106,4 +123,11 @@ const b = fromArray([5, 6, 7, 8, 9, 10]);
 // console.log(r.foldr((x, y) => x + y, 0, [1, 2, 3]))
 // logger(a);
 
-r.list(r.range(1, 1000)).reverse().print()
+const c = prepend(a, prepend(b, empty));
+
+const d = chain(c, r.identity);
+
+
+const q = r.list.chain(r.list(1, 2, 3), x => r.list(1, 2, 3)).forEach(x => console.log(`Hi there ${x}`))
+
+r.list.listWrapper(r.pair.fromArray(r.range(1, 10))).print()

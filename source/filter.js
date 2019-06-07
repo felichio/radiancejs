@@ -5,8 +5,11 @@
  * @signature
  *  filter :: (a -> Boolean) -> [a] -> [a]
  * @example
- * 
- * 
+ *  const a = [1, 2, 3, 4];
+ *  filter(x => x > 1, a);
+ *  //-> [2, 3, 4]
+ *  filter(x => x < 2)(a);
+ *  //-> [1]
  */
 
 import { flip, pcurry, unmethod } from "./exporter";

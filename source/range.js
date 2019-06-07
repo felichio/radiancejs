@@ -1,13 +1,13 @@
 /**
  * @description
- *  Merges two arrays. Returns a new array.
- *  Same behaviour as Array.prototype.concat except array must be passed explicitly
+ *  Creates an array with integers in range of [x, y). Can utilize a step quantity
  * @signature
- *  concat :: [a] -> [b] -> [a, b]
- *  concat :: ([a], [b]) -> [a, b] 
+ *  range :: (Number, Number, Number?) -> [Number]
  * @example
- * 
- * 
+ *  range(1, 5);
+ *  //-> [1, 2, 3, 4]
+ *  range(5, 1, -2)
+ *  //-> [5, 3]
  */
 
 

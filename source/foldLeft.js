@@ -3,9 +3,8 @@
  *  Gathering values of an Array through a reducer function. Left-Folding
  * @signature
  *  foldLeft :: ((b, a) -> b) -> b -> [a] -> b || (b -> a -> b) -> b -> [a] -> b
-
  * @example
- *  
+ *  const a = [1, 2, 3, 4];
  *
  */
 
