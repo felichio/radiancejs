@@ -16,6 +16,15 @@
  *  or
  *  curriedAdd(1, 2, 3, 4);
  *  //-> 10
+ * 
+ *  For functions that have unspecified number of arguments you can provide them explictly
+ * 
+ *  const add = (...args) => args.reduce((x, y) => x + y, 0, args);
+ *  curriedAdd = pcurry(add, 3);
+ *  curriedAdd(1, 2);
+ *  //-> Function
+ *  curriedAdd(1, 2, 3);
+ *  //-> 6 
  */
 
 

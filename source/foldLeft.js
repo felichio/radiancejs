@@ -5,6 +5,9 @@
  *  foldLeft :: ((b, a) -> b) -> b -> [a] -> b || (b -> a -> b) -> b -> [a] -> b
  * @example
  *  const a = [1, 2, 3, 4];
+ *  const add = (x, y) => x + y;
+ *  foldLeft(add, 0, a);
+ *  //-> 10
  *
  */
 
