@@ -21,7 +21,9 @@ import foldr from "./foldRight";
 import compose from "./compose";
 import range from "./range";
 import pipe from "./pipeline";
-
+import composeM from "./composeM";
+import pipeM from "./pipelineM";
+import list from "./list";
 
 export {
     add,
@@ -46,5 +48,9 @@ export {
     foldr,
     compose,
     range,
-    pipe
+    pipe,
+    composeM,
+    pipeM,
+    list
+
 };
