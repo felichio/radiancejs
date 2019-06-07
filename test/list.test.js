@@ -134,4 +134,7 @@ const d = chain(c, r.identity);
 
 const w = r.list(1, 2, 3, 4);
 
-logger(r.pair.prepend(r.list.foldl((x, y) => x + y)(0)(w), empty))
+const ww = r.list(r.range(1, 100, 5)).chain(x => r.list("up", "down")).forEach(r.identity).getPairContext();
+
+const q = r.list.filter(x => x > 50)(r.list.listWrapper(r.pair.chain(ww)(x => r.pair.prepend(1)(r.pair.empty))).print()).print().toArray();
+console.log(q)
