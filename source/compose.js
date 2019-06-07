@@ -1,7 +1,7 @@
 /**
  * @description
  *  Function composition. For f: A -> B, g: B -> C function composition produces a new function
- *  with a mapping A -> C and type gྪ ◦ f = g(f(x)) 
+ *  with a mapping A -> C and type g ◦ f = g(f(x)) 
  * @signature
  *  compose :: (y -> z, x -> y, ..., b -> c, a -> b) -> a -> z 
  * @example
