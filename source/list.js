@@ -101,33 +101,53 @@ list.listWrapper = p => listWrapper(p);
 // fromArray :: [a] -> List a
 list.fromArray = a => list(a);
 // map :: ((a -> b), List a) -> List b
-list.map = (f, p) => p.map(f);
+list.map = r.pcurry(
+    (f, p) => p.map(f)
+);
 // filter :: ((a -> Boolean), List a) -> List a
-list.filter = (f, p) => p.filter(f);
+list.filter = r.pcurry(
+    (f, p) => p.filter(f)
+);
 // forEach :: (a -> (), List a) -> List a
-list.forEach = (f, p) => p.forEach(f);
+list.forEach = r.pcurry(
+    (f, p) => p.forEach(f)
+);
 // logger :: (List a) -> ((), List a)
 list.print = p => p.print();
 // foldl :: ((b, a) -> b, b, List a) -> b
-list.foldl = (f, z, p) => p.foldl(f, z);
+list.foldl = r.pcurry(
+    (f, z, p) => p.foldl(f, z)
+);
 // foldr :: ((a, b) -> b, b, List a) -> b
-list.foldr = (f, z, p) => p.foldr(f, z);
+list.foldr = r.pcurry(
+    (f, z, p) => p.foldr(f, z)
+);
 // toArray :: List a -> [a]
 list.toArray = p => p.toArray();
 // concat :: (List a, List a) -> List a
-list.concat = (p1, p2) => p1.concat(p2);
+list.concat = r.pcurry(
+    (p1, p2) => p1.concat(p2)
+);
 // mconcat :: [List a] -> List a
-list.mconcat = (p, l) => p.mconcat(l);
+list.mconcat = r.pcurry(
+    (p, l) => p.mconcat(l)
+);
 // takeWhile :: ((a -> Boolean), List a) -> List a
-list.takeWhile = (f, p) => p.takeWhile(f);
+list.takeWhile = r.pcurry(
+    (f, p) => p.takeWhile(f)
+);
 // zip :: (List a, List b) -> List [a, b]
-list.zip = (p, r) => p.zip(r);
+list.zip = r.pcurry(
+    (p, r) => p.zip(r)
+);
 // reverse :: List a -> List a
 list.reverse = p => p.reverse();
 // join :: List (List a) -> List a
 list.join = p => p.join();
 // chain :: (List a, (a -> List b)) -> List b
-list.chain = (p, f) => p.chain(f);
+list.chain = r.pcurry(
+    (p, f) => p.chain(f)
+);
 // getPairContext :: List a -> Pair a
 list.getPairContext = p => p.getPairContext();
 

@@ -128,6 +128,10 @@ const c = prepend(a, prepend(b, empty));
 const d = chain(c, r.identity);
 
 
-const q = r.list.chain(r.list(1, 2, 3), x => r.list(1, 2, 3)).forEach(x => console.log(`Hi there ${x}`))
+// const q = r.list.chain(r.list(1, 2, 3), x => r.list(1, 2, 3)).forEach(x => console.log(`Hi there ${x}`))
 
-r.list.listWrapper(r.pair.fromArray(r.range(1, 10))).print()
+// r.list(1, 2, 3).chain(x => r.list(5, 6, 7)).print();
+
+const w = r.list(1, 2, 3, 4);
+
+logger(r.pair.prepend(r.list.foldl((x, y) => x + y)(0)(w), empty))
