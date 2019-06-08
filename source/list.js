@@ -169,9 +169,7 @@ list.concat = r.pcurry(
 );
 
 // mconcat :: [List a] -> List a
-list.mconcat = r.pcurry(
-    (p, l) => p.mconcat(l)
-);
+list.mconcat = l => listWrapper(empty).mconcat(l);
 
 // takeWhile :: ((a -> Boolean), List a) -> List a
 list.takeWhile = r.pcurry(

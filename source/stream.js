@@ -122,9 +122,7 @@ stream.concat = r.pcurry(
 );
 
 // mconcat :: [Stream a] -> Stream a
-stream.mconcat = r.pcurry(
-    (p, l) => p.mconcat(l)
-);
+stream.mconcat = l => streamWrapper(delayv(empty)).mconcat(l);
 
 // takeWhile :: ((a -> Boolean), Stream a) -> Stream a
 stream.takeWhile = r.pcurry(
