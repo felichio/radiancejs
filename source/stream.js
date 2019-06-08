@@ -1,19 +1,21 @@
-// import * as r from "./exporter";
+import * as r from "./exporter";
 
-// const pair = x => y => s => s(x)(y);
+const pair = x => y => s => s(x)(y);
 
-// const K = x => y => x;
+const K = x => y => x;
 
-// const I = r.identity;
+const I = r.identity;
 
-// const car = p => p(K);
+const car = p => p(K);
 
-// const cdr = p => p(K(I));
+const cdr = p => p(K(I));
 
-// const empty = null;
+const empty = null;
 
-// const prepend = (x, y) => pair(x)(y);
+const prepend = (x, y) => pair(x)(y);
 
+const delay = fn => (...args) => () => fn(...args);
+const delayv = val => () => val;
 
-// const delay = fn => (...args) => () => fn(...args);
+const fromArray = ([first, ...rest]) => first === undefined ? delayv(empty) : fromArray(rest);
 
