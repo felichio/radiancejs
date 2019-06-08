@@ -90,6 +90,8 @@ const listWrapper = p => {
         // toArray :: List a ⤳ [a]
         toArray: () => toArray(p),
 
+        toStream: () => r.stream.fromList(listWrapper(p)),
+
         // concat :: List a ⤳ List a -> List a
         concat: r => wrapped(concat)(p, r.getPairContext()),
 
@@ -126,6 +128,9 @@ list.listWrapper = p => listWrapper(p);
 
 // fromArray :: [a] -> List a
 list.fromArray = a => list(a);
+
+// toStream :: List a -> Stream a
+list.toStream = p => p.toStream();
 
 // map :: ((a -> b), List a) -> List b
 list.map = r.pcurry(

@@ -78,8 +78,8 @@ const forEach = r.pcurry(
     (f, p) => (foldl((z, x) => f(x), empty, p), p)
 );
 
-// logger :: (Pair a) -> ((), Pair a)
-const logger = p => forEach(x => console.log(x), p);
+// print :: (Pair a) -> ((), Pair a)
+const print = p => forEach(x => console.log(x), p);
 
 
 export {
@@ -99,5 +99,5 @@ export {
     join,
     chain,
     forEach,
-    logger,
+    print,
 }

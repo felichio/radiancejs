@@ -25,6 +25,8 @@ import composeM from "./composeM";
 import pipeM from "./pipelineM";
 import pair from "./pair";
 import list from "./list";
+import lpair from "./lazypair";
+import stream from "./stream";
 
 export {
     add,
@@ -53,6 +55,8 @@ export {
     composeM,
     pipeM,
     pair,
-    list
+    list,
+    lpair,
+    stream
 
 };
