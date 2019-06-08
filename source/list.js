@@ -78,7 +78,7 @@ const listWrapper = p => {
         // forEach :: List a ⤳ (a -> ()) -> List a
         forEach: f => wrapped(forEach)(f, p),
 
-        // print :: List a ⤳ () -> List a
+        // print :: List a ⤳ ((), Stream a)
         print: () => wrapped(forEach)(x => console.log(x), p),
 
         // foldl :: List a ⤳ ((b, a) -> b, b) -> b
@@ -123,56 +123,72 @@ const list = r.composeM(listWrapper, guardFromArray(fromArray));
 
 // ListWrapper :: Pair a -> List a
 list.listWrapper = p => listWrapper(p);
+
 // fromArray :: [a] -> List a
 list.fromArray = a => list(a);
+
 // map :: ((a -> b), List a) -> List b
 list.map = r.pcurry(
     (f, p) => p.map(f)
 );
+
 // filter :: ((a -> Boolean), List a) -> List a
 list.filter = r.pcurry(
     (f, p) => p.filter(f)
 );
+
 // forEach :: (a -> (), List a) -> List a
 list.forEach = r.pcurry(
     (f, p) => p.forEach(f)
 );
+
 // logger :: (List a) -> ((), List a)
 list.print = p => p.print();
+
 // foldl :: ((b, a) -> b, b, List a) -> b
 list.foldl = r.pcurry(
     (f, z, p) => p.foldl(f, z)
 );
+
 // foldr :: ((a, b) -> b, b, List a) -> b
 list.foldr = r.pcurry(
     (f, z, p) => p.foldr(f, z)
 );
+
 // toArray :: List a -> [a]
 list.toArray = p => p.toArray();
+
 // concat :: (List a, List a) -> List a
 list.concat = r.pcurry(
     (p1, p2) => p1.concat(p2)
 );
+
 // mconcat :: [List a] -> List a
 list.mconcat = r.pcurry(
     (p, l) => p.mconcat(l)
 );
+
 // takeWhile :: ((a -> Boolean), List a) -> List a
 list.takeWhile = r.pcurry(
     (f, p) => p.takeWhile(f)
 );
+
 // zip :: (List a, List b) -> List [a, b]
 list.zip = r.pcurry(
     (p, r) => p.zip(r)
 );
+
 // reverse :: List a -> List a
 list.reverse = p => p.reverse();
+
 // join :: List (List a) -> List a
 list.join = p => p.join();
+
 // chain :: (List a, (a -> List b)) -> List b
 list.chain = r.pcurry(
     (p, f) => p.chain(f)
 );
+
 // getPairContext :: List a -> Pair a
 list.getPairContext = p => p.getPairContext();
 
