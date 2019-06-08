@@ -5,17 +5,42 @@
  * @signature
  *  list :: ([a] | (a, a, a, a, ...a)) -> List a
  * @example
- *  const a = list([1, 2, 3, 4]) === list(1, 2, 3, 4) // cons(1, cons(2, cons(3, cons(4, empty))))
+ *  const a = list([1, 2, 3, 4]) // === list(1, 2, 3, 4) | cons(1, cons(2, cons(3, cons(4, empty))))
  *  
+ *  Mapping
+ * 
  *  You can map the list with a method call:
  * 
  *  a.map(x => x + 5);
  *  //-> cons(6, cons(7, cons(8, cons(9, empty))))
  * 
- *  or point-wise call :
+ *  or point-wise call:
  *  
- *  list.map(a, x => x + 5);
+ *  list.map(x => x + 5, a);
  *  // -> cons(6, cons(7, cons(8, cons(9, empty))))
+ *  
+ *  or curried alternative:
+ *  
+ *  list.map(x => x + y)(a)
+ *  // -> cons(6, cons(7, cons(8, cons(9, empty))))
+ * 
+ *  Zipping
+ * 
+ *  const b = list([1, 2, 3, 4]);  // === list(1, 2, 3, 4) | cons(1, cons(2, cons(3, cons(4, empty))))
+ *  const c = list([5, 6, 7, 8]);  // === list(5, 6, 7, 8) | cons(5, cons(6, cons(7, cons(8, empty))))
+ * 
+ *  b.zip(c);
+ *  //-> cons([1, 5], cons([2, 6], cons([3, 7], cons([4, 8], empty))))
+ * 
+ *  or point-wise call:
+ *  
+ *  list.zip(b, c);
+ *  //-> cons([1, 5], cons([2, 6], cons([3, 7], cons([4, 8], empty))))
+ *  
+ *  or curried alternative:
+ *  
+ *  list.zip(b)(c);
+ *  //-> cons([1, 5], cons([2, 6], cons([3, 7], cons([4, 8], empty))))
  */
 
 import * as r from "./exporter";

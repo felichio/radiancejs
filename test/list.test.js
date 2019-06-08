@@ -139,5 +139,11 @@ const r = require("../dist/radiance");
 // const q = r.list.filter(x => x > 50)(r.list.listWrapper(r.pair.chain(ww)(x => r.pair.prepend(1)(r.pair.empty))).print()).print().toArray();
 // console.log(q)
 
-const a = r.list.map(x => x + 10)(r.list(1, 2, 3, 4)).getPairContext();
-r.pair.forEach(x => console.log(x))(a);
+const a = r.list.map(x => x + 10)(r.list(1, 2, 3, 4))
+
+console.log(r.list.foldl((x, y) => x+ y)(0)(a));
+
+const b = r.list(1, 2, 3, 4);
+const c = r.list(5, 6, 7, 8);
+
+r.list.zip(b, c).print()
