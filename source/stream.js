@@ -88,10 +88,14 @@ stream.streamWrapper = p => streamWrapper(p);
 // fromArray :: [a] -> Stream a
 stream.fromArray = a => stream(a);
 
+// fromList :: List a -> Stream a
 stream.fromList = p => r.compose(streamWrapper, fromPair)(p.getPairContext())
 
 // toList :: Stream a -> List a
 stream.toList = p => p.toList();
+
+// toArray :: Stream a -> [a]
+stream.toArray = p => p.toArray();
 
 // map :: ((a -> b), Stream a) -> Stream b
 stream.map = r.pcurry(
@@ -112,9 +116,6 @@ stream.foldl = r.pcurry(
 stream.foldr = r.pcurry(
     (f, z, p) => p.foldr(f, z)
 );
-
-// toArray :: Stream a -> [a]
-stream.toArray = p => p.toArray();
 
 // concat :: (Stream a, Stream a) -> Stream a
 stream.concat = r.pcurry(

@@ -24,8 +24,8 @@ test("function: foldr -> r.list([3, 4, 5]).foldr(add, 0) === 12", () => {
     return expect(r.list([3, 4, 5]).foldr(r.add, 0)).toEqual(12);
 });
 
-test("function: toStream -> r.list([3, 4, 5]).toStream().toArray() === r.list(3, 4, 5).toArray()", () => {
-    return expect(r.list([3, 4, 5]).toStream().toArray()).toEqual(r.list(3, 4, 5).toArray());
+test("function: toStream -> r.list([3, 4, 5]).toStream().toArray() === r.stream(3, 4, 5).toArray()", () => {
+    return expect(r.list([3, 4, 5]).toStream().toArray()).toEqual(r.stream(3, 4, 5).toArray());
 });
 
 test("function: concat -> r.list.concat(r.list([1, 2, 3]), r.list([4, 5, 6])).toArray() === [1, 2, 3, 4, 5, 6]", () => {
@@ -46,6 +46,10 @@ test("function: zip -> r.list.zip(r.list(1, 2), r.list(3, 4)).toArray() === [[1,
 
 test("function: reverse -> r.list(1, 2, 3, 4).reverse().toArray() === [4, 3, 2, 1]", () => {
     return expect(r.list(1, 2, 3, 4).reverse().toArray()).toEqual([4, 3, 2, 1]);
+});
+
+test("function: getPairContext -> r.list.listWrapper(r.list(1, 2, 3, 4).getPairContext()).toArray() === [1, 2, 3, 4]", () => {
+    return expect(r.list.listWrapper(r.list(1, 2, 3, 4).getPairContext()).toArray()).toEqual([1, 2, 3, 4]);
 });
 
 test("function: join -> r.list.join(r.list(r.list(1, 2, 3), r.list(2, 3, 4))).toArray() === [1, 2, 3, 2, 3, 4]", () => {

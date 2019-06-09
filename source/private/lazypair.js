@@ -77,6 +77,13 @@ const filter = r.pcurry(
     }
 );
 
+const lfilter = delay(
+    (f, p) => {
+        const evaluated = p();
+        return evaluated === empty ? empty : f(car(evaluated)) ? prepend(car(evaluated), lfilter(f, cdr(evaluated))) : lfilter(f, cdr(evaluated))()
+    }
+);
+
 // takeWhile :: ((a -> Boolean), Lazy Pair a) -> Lazy Pair a
 const takeWhile = r.pcurry(
     delay(
@@ -115,7 +122,7 @@ const concat = r.pcurry(
 );
 
 // mconcat :: [Lazy Pair a] -> Lazy Pair a
-const mconcat = r.foldr(r.pcurry(concat, 2))(delayv(empty));
+const mconcat = r.foldr(concat)(delayv(empty));
 
 // zip :: (Lazy Pair a, Lazy Pair b) -> Lazy Pair [a, b]
 const zip = r.pcurry(
@@ -165,6 +172,7 @@ export {
     toArray,
     map,
     filter,
+    lfilter,
     takeWhile,
     zip,
     join,
@@ -172,5 +180,5 @@ export {
     tramboline,
     print,
     take,
-    repeat
+    repeat,
 }
