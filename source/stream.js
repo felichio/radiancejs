@@ -14,6 +14,7 @@ import {
     toArray,
     map,
     filter,
+    lfilter,
     takeWhile,
     zip,
     join,
@@ -21,7 +22,8 @@ import {
     tramboline,
     print,
     take,
-    repeat
+    repeat,
+    range
 } from "./private/lazypair";
 
 const streamWrapper = p => {
@@ -31,8 +33,11 @@ const streamWrapper = p => {
         // map :: Stream a ⤳ (a -> b) -> Stream a
         map: f => wrapped(map)(f, p),
 
-        // filter :: Stream a ⤳ (a -> Boolean) -> Stream a
+        // filter :: Stream a ⤳ (a -> Boolean) -> Stream a *greedy*
         filter: f => wrapped(filter)(f, p),
+
+        // filter :: Stream a ⤳ (a -> Boolean) -> Stream a  *lazy, use with caution cause filtering is not inherently lazy*
+        lfilter: f => wrapped(lfilter)(f, p),
 
         // foldl :: Stream a ⤳ ((b, a) -> b, b) -> b
         foldl: (f, z) => foldl(f, z, p),
@@ -97,6 +102,8 @@ stream.toList = p => p.toList();
 // toArray :: Stream a -> [a]
 stream.toArray = p => p.toArray();
 
+stream.range = r.composeM(streamWrapper, range);
+
 // map :: ((a -> b), Stream a) -> Stream b
 stream.map = r.pcurry(
     (f, p) => p.map(f)
@@ -105,6 +112,11 @@ stream.map = r.pcurry(
 // filter :: ((a -> Boolean), Stream a) -> Stream a
 stream.filter = r.pcurry(
     (f, p) => p.filter(f)
+);
+
+// filter :: ((a -> Boolean), Stream a) -> Stream a
+stream.lfilter = r.pcurry(
+    (f, p) => p.lfilter(f)
 );
 
 // foldl :: ((b, a) -> b, b, Stream a) -> b

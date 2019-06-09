@@ -77,10 +77,19 @@ const filter = r.pcurry(
     }
 );
 
-const lfilter = delay(
-    (f, p) => {
-        const evaluated = p();
-        return evaluated === empty ? empty : f(car(evaluated)) ? prepend(car(evaluated), lfilter(f, cdr(evaluated))) : lfilter(f, cdr(evaluated))()
+const lfilter = r.pcurry(
+    delay(
+        (f, p) => {
+            const evaluated = p();
+            return evaluated === empty ? empty : f(car(evaluated)) ? prepend(car(evaluated), lfilter(f, cdr(evaluated))) : lfilter(f, cdr(evaluated))()
+        }
+    ), 2
+);
+
+const range = delay(
+    (start, stop, step = (stop - start) < 0 ? -1 : 1) => {
+        return step >= 0 ? (start >= stop ? empty : prepend(start, range(start + step, stop, step)))
+                        : (start <= stop) ? empty : prepend(start, range(start + step, stop, step))
     }
 );
 
@@ -181,4 +190,5 @@ export {
     print,
     take,
     repeat,
+    range
 }
