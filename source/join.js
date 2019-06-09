@@ -1,13 +1,11 @@
 /**
  * @description
- *  Merges two arrays. Returns a new array.
- *  Same behaviour as Array.prototype.concat except array must be passed explicitly
+ *  Flattens one level an array data structure.
  * @signature
- *  concat :: [a] -> [b] -> [a, b]
- *  concat :: ([a], [b]) -> [a, b] 
+ *  join :: [[a]] -> [a]
  * @example
- *  concat([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6];
- *  concat([1, 2, 3])([4, 5, 6]) = [1, 2, 3, 4, 5, 6];
+ *  join([[1, 2, 3], [], [4, 5], [6]]);
+ *  //-> [ 1, 2, 3, 4, 5, 6 ]
  * 
  */
 

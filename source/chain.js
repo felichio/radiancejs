@@ -1,14 +1,12 @@
 /**
  * @description
- *  Merges two arrays. Returns a new array.
- *  Same behaviour as Array.prototype.concat except array must be passed explicitly
+ *  Chain operation (aka flatMap). Feeds a function of signature a -> M b to the array monad
  * @signature
- *  concat :: [a] -> [b] -> [a, b]
- *  concat :: ([a], [b]) -> [a, b] 
+ *  chain :: ([a], a -> [b]) -> [b]
+ *  chain :: [a] -> (a -> [b]) -> [b]
  * @example
- *  concat([1, 2, 3], [4, 5, 6]) = [1, 2, 3, 4, 5, 6];
- *  concat([1, 2, 3])([4, 5, 6]) = [1, 2, 3, 4, 5, 6];
- * 
+ *  const a = chain([1, 2])(x => [x, 1, x, 2]);
+ *  //-> [ 1, 1, 1, 2, 2, 1, 2, 2 ]
  */
 
 import { join, map, pcurry, compose } from "./exporter";
