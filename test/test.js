@@ -26,5 +26,16 @@ const a = r.composeK(x => r.stream(6, 6, 7), x => r.stream(1, 2, 3), x => r.stre
 
 // r.stream(6, 6).chain(a).print()
 
+const list = r.list;
+const stream = r.stream;
 
-console.log(r.join([[1, 2, 3], [], [4, 5], [6]]));
+
+
+stream.print(list.fromArray(list(1, 2, 3, 4).map(x => x + 5).toArray()))
+
+// console.log(r.join([[1, 2, 3], [], [4, 5], [6]]));
+
+console.log(r.chain([])(x => [x]));
+
+const b = r.lpair.range(1, 10);
+r.lpair.print(b)

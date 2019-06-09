@@ -1,7 +1,13 @@
 /**
  * @description
  *  Implements a lazily evaluated cons cell chain simulating a stream. Provides the core implementation for the streamWrapper object.
- *  You can use this implementation since it is exported, but better use the object alternative, stream
+ *  You can use this implementation since it is exported, but better use the object alternative, stream.
+ * 
+ *  ***
+ *  You have to procceed with caution when you are consuming a lazy structure or you will end with stack overflow. 
+ *  This happens because all the implementation utilizes a recursive approach. If you want to consume a lazy pair without errors,
+ *  you can use the unpure tramboline function helper.
+ *  ***
  * @signature
  *  lpair a = () => (empty | (a, lpair a))
  * @example
