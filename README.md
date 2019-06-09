@@ -19,7 +19,7 @@ $ npm install radiancejs
 ```
 
 #### Using it directly in the browser:
-Firsty navigate to a newly created folder and run the command
+Firsty navigate to a newly created folder for your project and run the command
 ```bash
 $ npm install radiancejs
 ```
@@ -29,9 +29,42 @@ You can find the distribution files inside the path ./node_modules/radiancejs/di
 <script src="path/to/distributionFiles/radiancejs.js"></script>
 ```
 
-or the minified version:
+If for some reason you need the unminified version you have to manually build in development (see building instructions)
 
-```html
-<script src="path/to/distributionFiles/radiancejs.min.js"></script>
+Building
+--------
+
+Navigate to the node_modules folder of your project and find the radiancejs package. Inside it run the command
+```bash
+$ npm install
+```
+to install the development dependencies. Now you can manually add functions to the library. Just create the new file in the source folder and add a record to the exporter.js file (view it to see the pattern).
+
+You can build in production mode with the command
+
+```bash
+$ npm run build
 ```
 
+or in development mode (unminified version)
+```bash
+$ npm run build-dev
+```
+Development building creates test/radiance.html. It is preloaded with the library so you can expreriment with it in the browser.
+
+Testing
+--------
+
+Navigate to the node_modules folder of your project and find the radiancejs package. Inside it run the command
+```bash
+$ npm install jest
+```
+to install the testing suite. You can manually add tests inside the test folder (be sure to adhere to the naming pattern)
+
+To run the test suite
+```bash
+$ npm run test
+```
+
+Usage
+--------

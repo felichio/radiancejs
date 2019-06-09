@@ -10,7 +10,7 @@ module.exports = {
     output: {
         libraryTarget: 'umd',
         globalObject: 'this',
-        library: "R",
+        library: "r",
         filename: "radiance.js",
         path: path.resolve(__dirname, 'dist'),
     },
