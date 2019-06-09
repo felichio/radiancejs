@@ -122,7 +122,7 @@ const listWrapper = p => {
 };
 
 
-const guardFromArray = f => (...args) => args.length > 1 ? f(args) : args.length === 1 ? f(args[0]) : f([]);
+const guardFromArray = f => (...args) => args.length > 1 ? f(args) : args.length === 1 ? (Array.isArray(args[0]) ? f(args[0]) : f([args[0]])) : f([])
 
 const list = r.composeM(listWrapper, guardFromArray(fromArray));
 

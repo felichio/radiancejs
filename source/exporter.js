@@ -22,6 +22,7 @@ import compose from "./compose";
 import range from "./range";
 import pipe from "./pipeline";
 import composeM from "./composeM";
+import composeK from "./composeK";
 import pipeM from "./pipelineM";
 import pair from "./pair";
 import list from "./list";
@@ -53,6 +54,7 @@ export {
     range,
     pipe,
     composeM,
+    composeK,
     pipeM,
     pair,
     list,
