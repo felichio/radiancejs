@@ -14,8 +14,12 @@ import { foldl, identity, foldr, list } from "./exporter";
 
 const composeKTwo = (g, f) => x => f(x).chain(g);
 
-const composeKNleft = (...args) => foldl(composeKTwo)(identity)(args);
+const composeKNleft = (...args) => args.reduce(composeKTwo);
 
-const composeKNright = (...args) => foldr(composeKTwo)(x => list(x))(args);
+// must provide a pure (aka return) function implementation
+// const composeKNleft2 = (...args) => foldl(composeKTwo)(pure)(args);
 
-export default composeKNright;
+// must provide a pure (aka return) function implementation
+// const composeKNright = (...args) => foldr(composeKTwo)(pure)(args);
+
+export default composeKNleft;

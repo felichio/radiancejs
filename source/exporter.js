@@ -18,6 +18,7 @@ import some from "./some";
 import concat from "./concat";
 import foldl from "./foldLeft";
 import foldr from "./foldRight";
+import join from "./join";
 import compose from "./compose";
 import range from "./range";
 import pipe from "./pipeline";
@@ -50,6 +51,7 @@ export {
     concat,
     foldl,
     foldr,
+    join,
     compose,
     range,
     pipe,

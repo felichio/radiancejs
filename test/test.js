@@ -18,12 +18,13 @@ let r = require("../dist/radiance");
 
 // console.log(r.stream.range(100, 200000).take(100).toArray())
 
-const composeKTwo = (g, f) => x => f(x).chain(g);
 
-const composeKNright = (...args) => r.foldr(composeKTwo)(r.list)(args);
 
-r.stream(1).print()
+r.stream("asd").print()
 
-const a = composeKNright(x => r.list(1, 2, 3), x => r.list([5, 5]));
+const a = r.composeK(x => r.stream(6, 6, 7), x => r.stream(1, 2, 3), x => r.stream([5, 5]));
 
-r.list(6, 6).chain(a);
+// r.stream(6, 6).chain(a).print()
+
+
+console.log(r.join([[1, 2, 3], [4, 5], [], [1, 2, 3, 4, 5]]))
