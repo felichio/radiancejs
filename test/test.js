@@ -27,4 +27,4 @@ const a = r.composeK(x => r.stream(6, 6, 7), x => r.stream(1, 2, 3), x => r.stre
 // r.stream(6, 6).chain(a).print()
 
 
-console.log(r.join([[1, 2, 3], [4, 5], [], [1, 2, 3, 4, 5]]))
+console.log(r.flip(r.chain)(x => [1], [1, 2, 3]))
