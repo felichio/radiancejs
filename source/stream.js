@@ -1,3 +1,72 @@
+/**
+ * @description
+ *  Implements a steam interface through a streamWrapper object. Utilizes a lpair data type (cons cell) for the creation
+ *  of a recursively defined, lazy, linked list. Simulates lazy evaluation with the help of functions (thunks)
+ *  
+ * ***
+ *  You have to procceed with caution when you are consuming a lazy structure or you will end with stack overflow. 
+ *  This happens because all the implementations are utilizing a recursive approach. If you want to consume a stream without errors,
+ *  you can use the unpure tramboline function helper.
+ * ***
+ * @signature
+ *  stream :: ([a] | (a, a, a, a, ...a)) -> Strea a
+ * @example
+ *  const a = stream([1, 2, 3, 4]) // === stream(1, 2, 3, 4)
+ *
+ *  Mapping
+ *
+ *  You can map the stream with a method call:
+ *
+ *  a.map(x => x + 5);
+ *  //-> () => cons(6, () => cons(7, () => cons(8, () => cons(9, () => empty))))  *Thunks are evaluated on demand*
+ *
+ *  or point-wise call:
+ *
+ *  stream.map(x => x + 5, a);
+ *  //-> () => cons(6, () => cons(7, () => cons(8, () => cons(9, () => empty))))  *Thunks are evaluated on demand*
+ *
+ *  or curried alternative:
+ *
+ *  stream.map(x => x + y)(a)
+ *  //-> () => cons(6, () => cons(7, () => cons(8, () => cons(9, () => empty))))  *Thunks are evaluated on demand*
+ *
+ *  Zipping
+ *
+ *  const b = stream([1, 2, 3, 4]);  // === stream(1, 2, 3, 4)
+ *  const c = stream([5, 6, 7, 8]);  // === stream(5, 6, 7, 8) 
+ *
+ *  b.zip(c);
+ *  //-> () => cons([1, 5], () => cons([2, 6], () => cons([3, 7], () => cons([4, 8], () => empty))))  *Thunks are evaluated on demand*
+ *
+ *  or point-wise call:
+ *
+ *  stream.zip(b, c);
+ *  //-> () => cons([1, 5], () => cons([2, 6], () => cons([3, 7], () => cons([4, 8], () => empty))))  *Thunks are evaluated on demand*
+ *
+ *  or curried alternative:
+ *
+ *  stream.zip(b)(c);
+ *  //-> () => cons([1, 5], () => cons([2, 6], () => cons([3, 7], () => cons([4, 8], () => empty))))  *Thunks are evaluated on demand*
+ * 
+ *  You can operate on infinite streams like this
+ * 
+ *  const n1 = stream.range(1, Infinity);
+ *  const n2 = stream.map(x => -x)(n1);
+ *  const n3 = stream.lfilter(x => x % 2 === 0)(n2);
+ *  const n4 = stream.take(100)(n3);
+ *  stream.print(n4);
+ *  //-> -2 -4 -6 ... -200
+ * 
+ *  Or you can use chaining
+ *  stream.range(1, Infinity).map(x => -x).lfilter(x => x % 2 === 0).take(100).print();
+ *  //-> -2 -4 -6 ... -200
+ * 
+ *  Convert it to Arrays
+ *  stream.range(100, 200000).take(100).toArray();
+ *  //-> [100, 101, ..., 199]
+ */
+
+
 import * as r from "./exporter";
 import {
     empty,
@@ -65,7 +134,7 @@ const streamWrapper = p => {
         // take :: Stream a ⤳ Number -> Stream a
         take: n => wrapped(take)(n, p),
 
-        // join :: Stream (Stream a) ⤳ List a
+        // join :: Stream (Stream a) ⤳ Stream a
         join: () => foldr((x, y) => wrapped(concat)(x.getLazyPairContext(), y.getLazyPairContext()), streamWrapper(delayv(empty)), p),
 
         // chain :: Stream a ⤳ (a -> Stream b) -> Stream b

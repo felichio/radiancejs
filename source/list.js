@@ -2,6 +2,9 @@
  * @description
  *  Implements a list interface through a listWrapper object. Utilizes a pair data type (cons cell) for the creation
  *  of a recursively defined linked list.
+ * 
+ *  For big number of elements, you may end with stack overflow error because all the implementations are using recursion.
+ *  Use streams (with the tramboline helper) if u want to play with more elements
  * @signature
  *  list :: ([a] | (a, a, a, a, ...a)) -> List a
  * @example

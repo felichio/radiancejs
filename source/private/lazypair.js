@@ -1,3 +1,37 @@
+/**
+ * @description
+ *  Implements a lazily evaluated cons cell chain simulating a stream. Provides the core implementation for the streamWrapper object.
+ *  You can use this implementation since it is exported, but better use the object alternative, stream
+ * @signature
+ *  lpair a = () => (empty | (a, lpair a))
+ * @example
+ *  Eg. You can map the lpair structure
+ *  const a = fromArray([1, 2, 3, 4]); //-> () => pair(1)(() => pair(2)(() => pair(3)(() => pair(4)(() => empty))))
+ *
+ *  const b = map(x => x + 5)(a);
+ *  //-> () => pair(6)(() => pair(7)(() => pair(8)(() => pair(9)(() => empty))))
+ *  // This is the lazy presentation. The structure isn't evaluated until its needed by a consumer
+ *
+ *  
+ *  You can produce infinite lpair
+ * 
+ *  const c = range(1, infinite);
+ *  
+ *  Filter them lazily and take the first n results
+ *  
+ *  const d = lfilter(x => x % 2 === 0)(c);
+ *  
+ *  const e = take(100)(d);
+ *  //-> Consumes the lazy chain of pairs. Creates a new lazy pair structure. Take is greedy, use with caution
+ * 
+ *  toArray(e);
+ *  //-> [2, 4, 6, ..., 200]
+ *  
+ *
+ */
+
+
+
 import * as r from "../exporter";
 
 const pair = x => y => s => s(x)(y);

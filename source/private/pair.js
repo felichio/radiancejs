@@ -1,3 +1,30 @@
+/**
+ * @description
+ *  Implements a cons cell chain simulating a linked list. Provides the core implementation for the listWrapper object
+ *  You can use this implementation since it is exported, but better use the object alternative, list
+ * @signature
+ *  pair a = empty | (a, pair a)
+ *  pair ::  a -> pair a -> pair a 
+ * @example
+ *  Eg. You can map a pair structure
+ *  const a = fromArray([1, 2, 3, 4]); //-> pair(1)(pair(2)(pair(3)(pair(4)(empty))))
+ *  
+ *  const b = map(x => x + 5)(a);
+ *  //-> pair(6)(pair(7)(pair(8)(pair(9)(empty))))
+ *  
+ *  You can fold it
+ *  foldr((x, y) => x + y, 0, b);
+ *  //-> 30
+ *  
+ *  Reverse it
+ *  reverse(b);
+ *  //-> pair(9)(pair(8)(pair(7)(pair(6)(empty))))
+ * 
+ */ 
+
+
+
+
 import * as r from "../exporter";
 
 const pair = x => y => s => s(x)(y);

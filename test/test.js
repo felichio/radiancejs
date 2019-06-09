@@ -6,4 +6,14 @@ let r = require("../dist/radiance");
 
 // r.stream.range(-1000, -1000000).map(x => x + 1000000).lfilter(x => x % 2 === 0).take(15).print()
 
-r.stream.range(1, 100).chain(x => r.stream.range(100, 200)).lfilter(x => x > 120).take(15).print()
+// console.log(r.lpair.toArray(r.lpair.take(100, r.lpair.lfilter(x => x % 2 === 0)(r.lpair.range(1, Infinity)))));
+
+// r.stream.range(1, Infinity).map(x => -x).lfilter(x => x % 2 === 0).take(100).print();
+
+ const n1 = r.stream.range(1, Infinity);
+ const n2 = r.stream.map(x => -x)(n1);
+ const n3 = r.stream.lfilter(x => x % 2 === 0)(n2);
+ const n4 = r.stream.take(100)(n3);
+ r.stream.print(n4);
+
+console.log(r.stream.range(100, 200000).take(100).toArray())
