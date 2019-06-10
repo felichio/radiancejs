@@ -19,7 +19,7 @@
 import pcurry from "./partialCurry";
 
 // Default. Implementation utilizing switch block statement
-const switchImplementation = (operator, x, y) => {
+const switchImplementation = (operator, y, x) => {
     switch(operator) {
         case "+": return x + y;
         case "-": return x - y;
@@ -32,7 +32,7 @@ const switchImplementation = (operator, x, y) => {
 };
 
 // Implementation utilizing if statement
-const ifImplementation = (operator, x, y) => {
+const ifImplementation = (operator, y, x) => {
     if (operator === "+") return x + y;
     else if (operator === "-") return x - y;
     else if (operator === "/") return x / y;
