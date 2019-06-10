@@ -15,4 +15,10 @@ const chain1 = f => compose(join, map(f));
 
 const chain2 = (m, f) => join(map(f, m));
 
+
+// Polutes the array prototype object with the chain function * composeK can utilize the object context to run on arrays too *
+Array.prototype.chain = function (f) {
+    return chain2(this, f);
+};
+
 export default pcurry(chain2);
