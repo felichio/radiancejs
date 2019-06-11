@@ -2,6 +2,7 @@
 Functional Programming in Javascript
 
 [![dependencies](https://david-dm.org/felichio/radiancejs.svg)](https://david-dm.org/felichio/radiancejs)
+[![npm version](https://badge.fury.io/js/radiancejs.svg)](https://badge.fury.io/js/radiancejs)
 
 **_This library was built for educational purposes._**
 
@@ -347,6 +348,7 @@ Pair data structure is simply the lambda expression that simulates the cons cell
 const r = require("radiance");
 
 const pair = r.pair;
+const list = r.list;
 
 // You can manually create a pair like this
 const a = pair.prepend(1, pair.prepend(2, pair.prepend(3, pair.empty)));
@@ -373,5 +375,122 @@ pair.toArray(pair.zip(pair.fromArray([1, 2, 3]), pair.fromArray([4, 5, 6])));
 pair.chain(pair.fromArray([1, 2, 3]))(x => pair.prepend(x, pair.prepend(1, pair.empty)));
 //-> pair(1, pair(1, pair(2, pair(1, pair(3, pair(1, null))))))
 
+// Additionally you can take the pair context from a List object
+list(1, 2, 3, 4).getPairContext();
+//-> pair(1, pair(2, pair(3, null)))
+
 ```
 
+#### Streams
+Stream function constructor defines an object wrapper to a recursively defined lazy pair structure. Effectively it wraps a function of type () => Cons(x, () => Cons(y, () => Cons(z, …))) and creates a new context with available methods. By utilizing thunks it can simulate a lazily evaluated List structure. This means that you can define and process infinite streams. The implementation and methods are based strictly on recursion to simulate effectively the functional definition. The lazy pair data structure is the same as the pair data structure with the addition of thunks. Due to its functional approach and the adherence to the lazy pair data structure, some of the operations are inherently lazy (delaying the consuming or the production process), while others are greedy (forcing the consuming or the production process). You can stack multiple lazy streams and then trigger the consuming process through a greedy method. Greedy functions are recursive so you have to be cautious (max stack records). If you want to consume an infinite stream use the tramboline method that utilizes a while loop.
+
+**Lazy (safe)**
+
+*stream.fromArray, stream.fromPair, stream.map, stream.range, stream.takeWhile, stream.repeat, stream.concat, steam.zip, stream.getLazyPairContext*
+
+**Lazy (unsafe)**
+
+*stream.mconcat, stream.join, stream.chain, stream.lfilter*
+
+**Greedy (safe)**
+
+*stream.tramboline, stream.print*
+
+**Greedy (unsafe)**
+
+*stream.take, stream.filter, stream.toPair, stream.toArray, stream.foldl, stream.foldr*
+
+
+```js
+const r = require("radiance");
+
+const stream = r.stream;
+
+stream(1, 2, 3, 4, 5).print();
+//-> 1, 2, 3, 4, 5
+
+stream([1, 2, 3, 4, 5]).print();
+//-> 1, 2, 3, 4, 5
+
+stream.range(1, Infinity).map(x => -x).lfilter(x => x % 2 === 0).take(1000).print();
+//-> -2, -4, -6, -8, ..., -2000
+
+const a = stream.repeat(3);
+//-> To be evaluated -> 3, 3, 3, 3, 3, 3, 3, ..., 3, ...
+const b = stream.range(1, Infinity);
+//-> To be evaluated -> 1, 2, 3, 4, 5, 6, 7, ..., 100, ...
+const c = stream.zip(a, b);
+//-> To be evaluated -> [3, 1], [3, 2], [3, 3], ..., [3, 100], ...
+c.map(x => [x[0] + 1, x[1]]).takeWhile(x => x[1] < 3000).take(100).print();
+//-> [4, 1], [4, 2], [4, 3], ..., [4, 100], ...
+
+
+// You can safely run tramboline method to consume an infinite stream
+stream.range(-1, -Infinity).lfilter(x => x % 2 !== 0 ).tramboline(console.log.bind(console));
+//-> -1, -3, -5, -7, ..., -16461, ... -Inifinity
+
+const w = [];
+stream.tramboline((x) => w.push(x))(stream.repeat(1).map(x => x + 1).take(5000));
+
+w;
+//-> [2, 2, 2, 2, 2, ..., 2]
+
+// Stream defines a Monad, so you can use the chain function
+stream(r.range(1, 100)).chain(x => stream([[x, "a"]])).print();
+//-> [1, "a"], [2, "a"], ..., [99, "a"]
+
+stream.join(stream(stream.range(1, Infinity), stream.range(-1, -Infinity))).print();
+//-> 1, 2, 3, 4, ..., Infinity
+
+
+stream.range(1, 101).foldr((x, y) => x + y, 0);
+//-> 5050
+stream.range(1, 101).toList().foldl((x, y) => x + y, 0);
+//-> 5050
+
+```
+
+#### Lazy Pairs
+Lazy Pair data structure is simply the lambda expression that simulates the cons cell. It is utilized heavily by the Stream (see above) constructor. In fact every stream function call is translated to its lazy pair equivalent with the result of the call, wrapped. The interface of lazy pair functionallity is exported by default so you can play with it but you'd better use the higher level stream object. You can transform a stream to its lazy pair equivalent with the stream.getLazyPairContext function call.
+
+
+```js
+const r = require("radiance");
+
+const lpair = r.lpair;
+const stream = r.stream;
+
+// You can manually create a lazy pair like this
+const a = () => lpair.prepend(1, () => lpair.prepend(2, () => lpair.prepend(3, () => lpair.empty)));
+//-> () => pair(1, () => pair(2, () => pair(3, null)))
+
+lpair.print(a);
+//-> 1, 2, 3
+
+lpair.print(lpair.map(x => x + 1)(a));
+//-> 2, 3, 4
+
+lpair.filter(x => x === 2)(a);
+//-> () => pair(2, () => null)
+
+lpair.fromArray([1, 2, 3, 4]);
+//-> () => pair(1, () => pair(2, () => pair(3, () => pair(4, null))))
+
+lpair.zip(lpair.fromArray([1, 2, 3]), lpair.fromArray([4, 5, 6]));
+//-> () => pair([1, 4], () => pair([2, 5], () => pair([3, 6], () => empty)))
+
+lpair.toArray(lpair.zip(lpair.fromArray([1, 2, 3]), lpair.fromArray([4, 5, 6])));
+//-> [[1, 4], [2, 5], [3, 6]]
+
+lpair.chain(lpair.fromArray([1, 2, 3]))(x => () => lpair.prepend(x, () => lpair.prepend(1, () => lpair.empty)));
+//-> () => pair(1, () => pair(1, () => pair(2, () => pair(1, () => pair(3, () => pair(1, ()=> null))))))
+
+lpair.print(lpair.takeWhile(x => x < 3000)(lpair.range(1, Infinity)));
+//-> 1, 2, 3, 4, 5, ..., 2999
+
+
+// Additionally you can take the lazy pair context from a List object
+stream(1, 2, 3, 4).getLazyPairContext();
+//-> pair(1, pair(2, pair(3, null)))
+
+```
