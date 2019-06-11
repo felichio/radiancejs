@@ -100,7 +100,7 @@ _.map(x => x + 1)([1, 2, 3, 4]);
 Examples
 --------
 
-#### Math operatations
+#### Math operations
 The basic math operations are available as curried functions
 
 *add, subtract, multiply, divide, binaryOp*
