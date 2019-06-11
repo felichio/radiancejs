@@ -1,11 +1,16 @@
 /**
  * @description
- *  Kleisli unction composition. For f: A -> M B, g: B -> M C kleisli function composition produces a new function
+ *  Kleisli function composition. For f: A -> M B, g: B -> M C kleisli function composition produces a new function
  *  with a mapping A -> M C and type g <=< f = x => f(x).chain(g)
  * @signature
  *  composeK :: (y -> m z, x -> m y, ..., b -> m c, a -> m b) -> a -> m z 
  * @example
+ *  const m = [1, 2, 3, 4];
  *  
+ *  const f = composeK(x => [1, 2, 3], x => [0, 0]);
+ * 
+ *  chain(m)(f);
+ *  //-> [ 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3 ]
  *  
  */
 
