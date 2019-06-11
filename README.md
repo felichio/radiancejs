@@ -494,3 +494,8 @@ stream(1, 2, 3, 4).getLazyPairContext();
 //-> pair(1, pair(2, pair(3, null)))
 
 ```
+
+
+Final Notes
+------------
+As i mentioned this library was built for educational purposes. I recommend studying the source code and playing with it if your are familiar with the language and want to gain a small taste on the functional approach of it.
