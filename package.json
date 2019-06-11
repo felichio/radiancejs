@@ -5,7 +5,8 @@
   "main": "dist/radiance.js",
   "scripts": {
     "test": "jest --verbose",
-    "build-dev": "npx webpack --config \"./webpack.dev.js\""
+    "build-dev": "npx webpack --config \"./webpack.dev.js\"",
+    "build": "npx webpack --config \"./webpack.prod.js\""
   },
   "repository": {
     "type": "git",
